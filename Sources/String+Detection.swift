@@ -10,6 +10,7 @@ import Foundation
 
 public struct Tag {
     public let name: String
+    public let rawString: String
     public let attributes: [String: String]
 }
 
@@ -85,7 +86,7 @@ extension String {
             attrubutes[name] = value.replacingOccurrences(of: "&quot;", with: "\"")
         }
         
-        return Tag(name: tagName, attributes: attrubutes)
+        return Tag(name: tagName, rawString: tagString, attributes: attrubutes)
     }
     
     private static let specials = ["quot":"\"",
